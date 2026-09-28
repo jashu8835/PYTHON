@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Full Stack Tutorials</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f7f8fc;
+            color: #172033;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 70px;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, 0.92);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: #374151;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 90px 20px 75px;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(99, 102, 241, 0.12),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(139, 92, 246, 0.12),
+                    transparent 30%
+                ),
+
+                white;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+
+            letter-spacing: -2px;
+
+            color: #111827;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #7c3aed,
+                #9333ea
+            );
+
+            background-clip: text;
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-btn {
+            display: inline-flex;
+
+            margin-top: 30px;
+
+            padding: 12px 22px;
+
+            border-radius: 12px;
+
+            background: #4f46e5;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+
+            background: #4338ca;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .tutorial-section {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 90px 20px 120px;
+        }
+
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+
+            color: #111827;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           CATEGORY
+        ========================= */
+
+        .category {
+            margin-bottom: 65px;
+        }
+
+        .category-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+        }
+
+        .category-title .number {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 10px;
+
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .category-title h3 {
+            font-size: 26px;
+
+            color: #111827;
+        }
+
+
+        /* =========================
+           CONCEPT GRID
+        ========================= */
+
+        .concept-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        /* =========================
+           CONCEPT CARD
+        ========================= */
+
+        .concept-card {
+            min-height: 235px;
+
+            padding: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(31, 41, 55, 0.05);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-7px);
+
+            border-color: #c7d2fe;
+
+            box-shadow:
+                0 18px 40px rgba(79, 70, 229, 0.12);
+        }
+
+
+        /* =========================
+           CARD TOP
+        ========================= */
+
+        .concept-top {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 20px;
+        }
+
+        .concept-icon {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #eef2ff;
+
+            font-size: 25px;
+        }
+
+        .video-label {
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            background: #f3f4f6;
+
+            color: #6b7280;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           CARD CONTENT
+        ========================= */
+
+        .concept-card h4 {
+            font-size: 19px;
+
+            color: #111827;
+
+            margin-bottom: 9px;
+        }
+
+        .concept-card p {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           WATCH BUTTON
+        ========================= */
+
+        .watch-btn {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 11px 15px;
+
+            margin-top: 20px;
+
+            border-radius: 10px;
+
+            background: #4f46e5;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .watch-btn:hover {
+            background: #4338ca;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           SPECIAL PYTHON CARD
+        ========================= */
+
+        .python-card .concept-icon {
+            background: #fff7ed;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            max-width: 1000px;
+
+            margin: 0 auto 100px;
+
+            padding: 60px 25px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #f5f3ff
+                );
+
+            border: 1px solid #ddd6fe;
+        }
+
+        .cta h2 {
+            font-size: 34px;
+
+            margin-bottom: 12px;
+
+            color: #111827;
+        }
+
+        .cta p {
+            color: #6b7280;
+
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+
+            padding: 13px 25px;
+
+            border-radius: 11px;
+
+            background: #4f46e5;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #4338ca;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: white;
+
+            border-top: 1px solid #e5e7eb;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .concept-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                height: 60px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero {
+                padding:
+                    70px 18px
+                    60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .tutorial-section {
+                padding:
+                    70px 15px
+                    90px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .category-title h3 {
+                font-size: 22px;
+            }
+
+            .concept-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 15px;
+            }
+
+            .concept-card {
+                min-height: 220px;
+
+                padding: 20px;
+            }
+
+            .concept-card h4 {
+                font-size: 17px;
+            }
+
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 450px) {
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .concept-card {
+                min-height: 210px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                🗺️ Roadmap
+            </a>
+
+            <a href="#tutorials">
+                🎥 Tutorials
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="badge">
+            🎥 Telugu Tutorials
+        </div>
+
+        <h1>
+            Learn Every
+            <span>Concept</span>
+        </h1>
+
+        <p>
+            Choose a concept, click Watch Tutorial,
+            and start learning with Telugu resources.
+        </p>
+
+        <a
+            href="index.html"
+            class="back-btn"
+        >
+            ← Back to Roadmap
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         TUTORIALS
+    ========================= -->
+
+    <main
+        class="tutorial-section"
+        id="tutorials"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Concept Tutorials
+            </h2>
+
+            <p>
+                Learn step-by-step from beginner concepts to real-world development.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PYTHON FUNDAMENTALS
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    🐍 Python Fundamentals
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <!-- Python -->
+
+                <div class="concept-card python-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🐍
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Python Introduction
+                        </h4>
+
+                        <p>
+                            Understand Python and how to write your first program.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- Variables -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                📦
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Variables & Data Types
+                        </h4>
+
+                        <p>
+                            Learn variables, numbers, strings and Boolean values.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- If -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔀
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            If / Else Conditions
+                        </h4>
+
+                        <p>
+                            Make decisions in Python using conditional statements.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- Loops -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔁
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Loops
+                        </h4>
+
+                        <p>
+                            Learn for loops, while loops and iteration.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- Functions -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ⚙️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Functions
+                        </h4>
+
+                        <p>
+                            Create reusable blocks of Python code.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- Lists -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                📋
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Lists & Tuples
+                        </h4>
+
+                        <p>
+                            Store and work with collections of data.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- Sets -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🗂️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Sets & Dictionaries
+                        </h4>
+
+                        <p>
+                            Learn sets, key-value pairs and dictionaries.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <!-- Strings -->
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔤
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Strings
+                        </h4>
+
+                        <p>
+                            Work with text, slicing and string methods.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=h1WdbfoHeac"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADVANCED PYTHON
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    🧠 Advanced Python
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🏗️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            OOP
+                        </h4>
+
+                        <p>
+                            Learn classes, objects and object-oriented programming.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=8zFEqIhZYE0"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔒
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Encapsulation
+                        </h4>
+
+                        <p>
+                            Understand data hiding and encapsulation.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=8zFEqIhZYE0"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🌳
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Inheritance
+                        </h4>
+
+                        <p>
+                            Reuse classes through inheritance.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=8zFEqIhZYE0"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔄
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Polymorphism
+                        </h4>
+
+                        <p>
+                            Understand different forms of the same interface.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=8zFEqIhZYE0"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                📦
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Modules & Packages
+                        </h4>
+
+                        <p>
+                            Organize Python programs into reusable modules.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Python+modules+packages+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ⚠️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Exception Handling
+                        </h4>
+
+                        <p>
+                            Handle errors using try, except and finally.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Python+Exception+Handling+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                📄
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            File Handling
+                        </h4>
+
+                        <p>
+                            Read, write and manage files using Python.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Python+File+Handling+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🧪
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Virtual Environment
+                        </h4>
+
+                        <p>
+                            Create isolated Python project environments.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Python+Virtual+Environment+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HTML / CSS / JAVASCRIPT
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    🌐 Frontend Development
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🌐
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            HTML
+                        </h4>
+
+                        <p>
+                            Learn the structure of modern websites.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=gB8h31FlI9A"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🎨
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            CSS
+                        </h4>
+
+                        <p>
+                            Style websites and create responsive layouts.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=gB8h31FlI9A"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ⚡
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            JavaScript
+                        </h4>
+
+                        <p>
+                            Add logic and interactivity to websites.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=gB8h31FlI9A"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ⚛️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            React.js
+                        </h4>
+
+                        <p>
+                            Build modern frontend applications with React.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=ZXEBQHxSzBQ"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATABASES
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    🗄️ Databases
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🗃️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            SQL Basics
+                        </h4>
+
+                        <p>
+                            Learn queries and database fundamentals.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=VZcde1Tn4UQ"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🐬
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            MySQL
+                        </h4>
+
+                        <p>
+                            Work with one of the most popular SQL databases.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=VZcde1Tn4UQ"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔗
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            SQL Joins
+                        </h4>
+
+                        <p>
+                            Combine data from multiple database tables.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=VZcde1Tn4UQ"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔄
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            CRUD
+                        </h4>
+
+                        <p>
+                            Create, read, update and delete data.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/watch?v=VZcde1Tn4UQ"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BACKEND
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    05
+                </div>
+
+                <h3>
+                    🚀 Backend Development
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🎯
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Django
+                        </h4>
+
+                        <p>
+                            Build complete Python web applications.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Django+Telugu+full+course"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🧪
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Flask
+                        </h4>
+
+                        <p>
+                            Learn lightweight Python web development.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Flask+Telugu+full+course"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ⚡
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            FastAPI
+                        </h4>
+
+                        <p>
+                            Build fast modern APIs with Python.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=FastAPI+Telugu+full+course"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🔗
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            REST APIs
+                        </h4>
+
+                        <p>
+                            Connect frontend applications with backends.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=REST+API+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TOOLS
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    06
+                </div>
+
+                <h3>
+                    🛠️ Developer Tools
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🐙
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Git
+                        </h4>
+
+                        <p>
+                            Learn version control and important Git commands.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Git+GitHub+Telugu+full+course"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                💻
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            GitHub
+                        </h4>
+
+                        <p>
+                            Learn repositories, branches and collaboration.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=GitHub+Telugu+course"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🐳
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Docker
+                        </h4>
+
+                        <p>
+                            Learn containers and application deployment.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Docker+Telugu+full+course"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ☁️
+                            </div>
+
+                            <div class="video-label">
+                                VIDEO
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Cloud & Deployment
+                        </h4>
+
+                        <p>
+                            Learn how to deploy applications online.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Cloud+Deployment+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <section class="category">
+
+            <div class="category-title">
+
+                <div class="number">
+                    07
+                </div>
+
+                <h3>
+                    🏆 Real-World Projects
+                </h3>
+
+            </div>
+
+
+            <div class="concept-grid">
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                👨‍💻
+                            </div>
+
+                            <div class="video-label">
+                                PROJECT
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Portfolio Website
+                        </h4>
+
+                        <p>
+                            Build your own developer portfolio.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Portfolio+Website+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                🛒
+                            </div>
+
+                            <div class="video-label">
+                                PROJECT
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            E-Commerce Website
+                        </h4>
+
+                        <p>
+                            Build a complete online shopping application.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Django+Ecommerce+Project+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                ✅
+                            </div>
+
+                            <div class="video-label">
+                                PROJECT
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Task Management App
+                        </h4>
+
+                        <p>
+                            Create a full-stack task management application.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Django+Task+Management+Project+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <div>
+
+                        <div class="concept-top">
+
+                            <div class="concept-icon">
+                                💬
+                            </div>
+
+                            <div class="video-label">
+                                PROJECT
+                            </div>
+
+                        </div>
+
+                        <h4>
+                            Chat Application
+                        </h4>
+
+                        <p>
+                            Build a real-time style chat application.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.youtube.com/results?search_query=Chat+Application+Django+Telugu"
+                        target="_blank"
+                        class="watch-btn"
+                    >
+                        ▶ Watch Tutorial
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta">
+
+        <h2>
+            Learn → Build → Become a Developer 🚀
+        </h2>
+
+        <p>
+            Follow the roadmap and learn each concept step by step.
+        </p>
+
+        <a
+            href="index.html"
+            class="cta-btn"
+        >
+            ← Back to Roadmap
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 Python Full-Stack Learning Hub 🐍
+        <br>
+        Learn • Build • Practice • Deploy
+
+    </footer>
+
+
+</body>
+
+</html>

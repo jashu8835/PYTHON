@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Full Stack Roadmap</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f7f8fc;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 15px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 620px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 100px 20px 80px;
+
+            background:
+                radial-gradient(circle at 15% 20%,
+                    rgba(99, 102, 241, 0.12),
+                    transparent 30%),
+                radial-gradient(circle at 85% 30%,
+                    rgba(139, 92, 246, 0.12),
+                    transparent 30%),
+                #ffffff;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: #eef2ff;
+            color: #4f46e5;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+
+            color: #111827;
+        }.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #7c3aed,
+        #9333ea
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+
+            font-size: 18px;
+            line-height: 1.8;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           HERO BUTTONS
+        ========================= */
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 25px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+        }
+
+        .primary-btn {
+            background: #4f46e5;
+            color: white;
+
+            box-shadow:
+                0 10px 25px rgba(79, 70, 229, 0.25);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+
+            background: #4338ca;
+
+            box-shadow:
+                0 15px 30px rgba(79, 70, 229, 0.3);
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #4f46e5;
+
+            border: 1px solid #c7d2fe;
+        }
+
+        .secondary-btn:hover {
+            transform: translateY(-3px);
+
+            background: #eef2ff;
+        }
+
+
+        /* =========================
+           ROADMAP SECTION
+        ========================= */
+
+        .roadmap-section {
+            padding: 100px 20px 120px;
+
+            background: #f7f8fc;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 80px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(32px, 5vw, 48px);
+
+            color: #111827;
+
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           ROADMAP TIMELINE
+        ========================= */
+
+        .roadmap {
+            position: relative;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        /* Center line */
+
+        .roadmap::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+
+            left: 50%;
+
+            width: 3px;
+
+            transform: translateX(-50%);
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #c7d2fe,
+                    #818cf8,
+                    #c7d2fe
+                );
+
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           STEP
+        ========================= */
+
+        .step {
+            position: relative;
+
+            width: 50%;
+
+            padding: 15px 45px;
+
+            margin-bottom: 35px;
+        }
+
+        .step:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .step:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+
+        /* =========================
+           DOT
+        ========================= */
+
+        .dot {
+            position: absolute;
+
+            top: 45px;
+
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            border: 5px solid #6366f1;
+
+            z-index: 5;
+
+            box-shadow:
+                0 0 0 6px #f7f8fc;
+        }
+
+        .step:nth-child(odd) .dot {
+            right: -10px;
+        }
+
+        .step:nth-child(even) .dot {
+            left: -10px;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            position: relative;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: #c7d2fe;
+
+            box-shadow:
+                0 20px 45px rgba(31, 41, 55, 0.10);
+        }
+
+
+        /* =========================
+           CARD HEADER
+        ========================= */
+
+        .step-header {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .step-icon {
+            min-width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #eef2ff;
+
+            font-size: 25px;
+        }
+
+        .step-info {
+            flex: 1;
+        }
+
+        .step-number {
+            display: block;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            color: #6366f1;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 3px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+
+            color: #111827;
+        }
+
+        .card-description {
+            color: #6b7280;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           ARROW
+        ========================= */
+
+        .arrow {
+            font-size: 20px;
+
+            color: #6366f1;
+
+            transition: 0.3s;
+        }
+
+        .card.active .arrow {
+            transform: rotate(180deg);
+        }
+
+
+        /* =========================
+           TOPICS
+        ========================= */
+
+        .topics {
+            max-height: 0;
+
+            overflow: hidden;
+
+            transition:
+                max-height 0.45s ease,
+                margin-top 0.3s ease;
+
+            border-top: 1px solid transparent;
+        }
+
+        .card.active .topics {
+            max-height: 600px;
+
+            margin-top: 20px;
+
+            border-top-color: #e5e7eb;
+
+            padding-top: 15px;
+        }
+
+        .topic {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 10px 0;
+
+            color: #4b5563;
+
+            font-size: 14px;
+
+            border-bottom: 1px solid #f3f4f6;
+
+            text-decoration: none;
+
+            transition: 0.25s;
+        }
+
+        .topic:last-child {
+            border-bottom: none;
+        }
+
+        .topic:hover {
+            color: #4f46e5;
+
+            padding-left: 5px;
+        }
+
+        .topic::before {
+            content: "→";
+
+            color: #6366f1;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            max-width: 1000px;
+
+            margin: 0 auto 100px;
+
+            padding: 60px 30px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #f5f3ff
+                );
+
+            border: 1px solid #ddd6fe;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+
+            color: #111827;
+
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #6b7280;
+
+            font-size: 16px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: white;
+
+            border-top: 1px solid #e5e7eb;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+                height: 60px;
+            }
+
+            .nav-links {
+                gap: 22px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 580px;
+
+                padding: 80px 20px 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .hero-btn {
+                width: 100%;
+
+                max-width: 280px;
+            }
+
+            .roadmap-section {
+                padding: 80px 15px;
+            }
+
+            .section-heading {
+                margin-bottom: 50px;
+            }
+
+            /* Move timeline to left */
+
+            .roadmap::before {
+                left: 20px;
+
+                transform: none;
+            }
+
+            .step {
+                width: 100%;
+
+                left: 0 !important;
+
+                padding:
+                    15px
+                    15px
+                    15px
+                    55px;
+
+                text-align: left !important;
+            }
+
+            .step:nth-child(odd),
+            .step:nth-child(even) {
+                left: 0;
+            }
+
+            .dot {
+                left: 10px !important;
+
+                right: auto !important;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .step-header {
+                gap: 12px;
+            }
+
+            .step-icon {
+                min-width: 45px;
+                height: 45px;
+
+                font-size: 21px;
+            }
+
+            .card h3 {
+                font-size: 18px;
+            }
+
+            .cta {
+                margin:
+                    0 15px
+                    70px;
+
+                padding:
+                    45px 20px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="nav-links">
+
+            <a href="#roadmap">
+                Roadmap
+            </a>
+
+            <a href="tutorials.html">
+                Tutorials
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🚀 Python Full-Stack Learning Roadmap
+            </div>
+
+            <h1>
+                Become a
+                <span>Full-Stack Developer</span>
+            </h1>
+
+            <p>
+                Follow a structured learning path from Python fundamentals
+                to frontend development, backend frameworks, databases,
+                APIs, deployment and real-world projects.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#roadmap"
+                    class="hero-btn primary-btn"
+                >
+                    Explore Roadmap →
+                </a>
+
+                <a
+                    href="tutorials.html"
+                    class="hero-btn secondary-btn"
+                >
+                    Watch Tutorials →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ROADMAP
+    ========================= -->
+
+    <section
+        class="roadmap-section"
+        id="roadmap"
+    >
+
+        <div class="section-heading">
+
+            <h2>
+                Your Learning Journey
+            </h2>
+
+            <p>
+                Click any step to explore the topics you need to learn.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap">
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🐍
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 01
+                            </span>
+
+                            <h3>
+                                Python Fundamentals
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Build a strong foundation in Python programming.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Python Introduction
+                        </a>
+
+                        <a href="#" class="topic">
+                            Variables & Data Types
+                        </a>
+
+                        <a href="#" class="topic">
+                            If / Else Conditions
+                        </a>
+
+                        <a href="#" class="topic">
+                            Loops
+                        </a>
+
+                        <a href="#" class="topic">
+                            Functions
+                        </a>
+
+                        <a href="#" class="topic">
+                            Lists & Tuples
+                        </a>
+
+                        <a href="#" class="topic">
+                            Sets & Dictionaries
+                        </a>
+
+                        <a href="#" class="topic">
+                            Strings
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🧠
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 02
+                            </span>
+
+                            <h3>
+                                Advanced Python
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Move beyond the basics and understand professional Python.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Object-Oriented Programming
+                        </a>
+
+                        <a href="#" class="topic">
+                            Encapsulation
+                        </a>
+
+                        <a href="#" class="topic">
+                            Inheritance
+                        </a>
+
+                        <a href="#" class="topic">
+                            Polymorphism
+                        </a>
+
+                        <a href="#" class="topic">
+                            Modules & Packages
+                        </a>
+
+                        <a href="#" class="topic">
+                            Exception Handling
+                        </a>
+
+                        <a href="#" class="topic">
+                            File Handling
+                        </a>
+
+                        <a href="#" class="topic">
+                            Virtual Environment
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            📊
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 03
+                            </span>
+
+                            <h3>
+                                Python Libraries
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Learn powerful libraries used in real Python projects.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            NumPy
+                        </a>
+
+                        <a href="#" class="topic">
+                            Pandas
+                        </a>
+
+                        <a href="#" class="topic">
+                            Matplotlib
+                        </a>
+
+                        <a href="#" class="topic">
+                            Seaborn
+                        </a>
+
+                        <a href="#" class="topic">
+                            Requests
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 4 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🌐
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 04
+                            </span>
+
+                            <h3>
+                                HTML
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Learn how websites are structured using HTML.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            HTML Elements
+                        </a>
+
+                        <a href="#" class="topic">
+                            Forms
+                        </a>
+
+                        <a href="#" class="topic">
+                            Images & Media
+                        </a>
+
+                        <a href="#" class="topic">
+                            Tables
+                        </a>
+
+                        <a href="#" class="topic">
+                            Semantic HTML
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 5 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🎨
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 05
+                            </span>
+
+                            <h3>
+                                CSS
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Make websites beautiful, responsive and interactive.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            CSS Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            Box Model
+                        </a>
+
+                        <a href="#" class="topic">
+                            Flexbox
+                        </a>
+
+                        <a href="#" class="topic">
+                            CSS Grid
+                        </a>
+
+                        <a href="#" class="topic">
+                            Responsive Design
+                        </a>
+
+                        <a href="#" class="topic">
+                            Animations
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 6 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            ⚡
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 06
+                            </span>
+
+                            <h3>
+                                JavaScript
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Add logic and dynamic behaviour to websites.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Variables
+                        </a>
+
+                        <a href="#" class="topic">
+                            Functions
+                        </a>
+
+                        <a href="#" class="topic">
+                            DOM
+                        </a>
+
+                        <a href="#" class="topic">
+                            Events
+                        </a>
+
+                        <a href="#" class="topic">
+                            Async JavaScript
+                        </a>
+
+                        <a href="#" class="topic">
+                            Fetch API
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 7 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            ⚛️
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 07
+                            </span>
+
+                            <h3>
+                                React.js
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Build modern frontend applications using React.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            React Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            Components
+                        </a>
+
+                        <a href="#" class="topic">
+                            Props
+                        </a>
+
+                        <a href="#" class="topic">
+                            State
+                        </a>
+
+                        <a href="#" class="topic">
+                            Hooks
+                        </a>
+
+                        <a href="#" class="topic">
+                            React Router
+                        </a>
+
+                        <a href="#" class="topic">
+                            API Integration
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 8 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🗄️
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 08
+                            </span>
+
+                            <h3>
+                                SQL & Databases
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Store, retrieve and manage application data.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            SQL Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            MySQL
+                        </a>
+
+                        <a href="#" class="topic">
+                            PostgreSQL
+                        </a>
+
+                        <a href="#" class="topic">
+                            Joins
+                        </a>
+
+                        <a href="#" class="topic">
+                            CRUD
+                        </a>
+
+                        <a href="#" class="topic">
+                            Database Security
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 9 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🎯
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 09
+                            </span>
+
+                            <h3>
+                                Django
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Build complete backend applications with Django.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Django Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            URLs
+                        </a>
+
+                        <a href="#" class="topic">
+                            Views
+                        </a>
+
+                        <a href="#" class="topic">
+                            Templates
+                        </a>
+
+                        <a href="#" class="topic">
+                            Models
+                        </a>
+
+                        <a href="#" class="topic">
+                            Forms
+                        </a>
+
+                        <a href="#" class="topic">
+                            Authentication
+                        </a>
+
+                        <a href="#" class="topic">
+                            Django REST Framework
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 10 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🧪
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 10
+                            </span>
+
+                            <h3>
+                                Flask
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Learn a lightweight Python web framework.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Flask Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            Routes
+                        </a>
+
+                        <a href="#" class="topic">
+                            Templates
+                        </a>
+
+                        <a href="#" class="topic">
+                            Flask APIs
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 11 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🚀
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 11
+                            </span>
+
+                            <h3>
+                                FastAPI
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Create modern, fast Python APIs.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            FastAPI Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            REST APIs
+                        </a>
+
+                        <a href="#" class="topic">
+                            Pydantic
+                        </a>
+
+                        <a href="#" class="topic">
+                            Authentication
+                        </a>
+
+                        <a href="#" class="topic">
+                            API Documentation
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 12 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🔗
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 12
+                            </span>
+
+                            <h3>
+                                REST APIs
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Understand how frontend and backend communicate.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            HTTP
+                        </a>
+
+                        <a href="#" class="topic">
+                            GET / POST
+                        </a>
+
+                        <a href="#" class="topic">
+                            PUT / PATCH
+                        </a>
+
+                        <a href="#" class="topic">
+                            DELETE
+                        </a>
+
+                        <a href="#" class="topic">
+                            JSON
+                        </a>
+
+                        <a href="#" class="topic">
+                            JWT Authentication
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 13 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🐙
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 13
+                            </span>
+
+                            <h3>
+                                Git & GitHub
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Learn version control and collaborative development.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Git Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            Git Commands
+                        </a>
+
+                        <a href="#" class="topic">
+                            Branches
+                        </a>
+
+                        <a href="#" class="topic">
+                            Merge
+                        </a>
+
+                        <a href="#" class="topic">
+                            Pull Requests
+                        </a>
+
+                        <a href="#" class="topic">
+                            Team Collaboration
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 14 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            ☁️
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 14
+                            </span>
+
+                            <h3>
+                                Deployment & Cloud
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Learn how to deploy applications to the internet.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Cloud Basics
+                        </a>
+
+                        <a href="#" class="topic">
+                            Deployment
+                        </a>
+
+                        <a href="#" class="topic">
+                            Docker
+                        </a>
+
+                        <a href="#" class="topic">
+                            Environment Variables
+                        </a>
+
+                        <a href="#" class="topic">
+                            HTTPS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 15 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🛡️
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 15
+                            </span>
+
+                            <h3>
+                                Testing & Security
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Learn how to test applications and understand web security.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Unit Testing
+                        </a>
+
+                        <a href="#" class="topic">
+                            Debugging
+                        </a>
+
+                        <a href="#" class="topic">
+                            Authentication
+                        </a>
+
+                        <a href="#" class="topic">
+                            Web Security Basics
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 16 -->
+
+            <div class="step">
+
+                <div class="dot"></div>
+
+                <div
+                    class="card"
+                    onclick="toggleCard(this)"
+                >
+
+                    <div class="step-header">
+
+                        <div class="step-icon">
+                            🏆
+                        </div>
+
+                        <div class="step-info">
+
+                            <span class="step-number">
+                                STEP 16
+                            </span>
+
+                            <h3>
+                                Real-World Projects
+                            </h3>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Put everything together by building complete projects.
+                    </p>
+
+
+                    <div class="topics">
+
+                        <a href="#" class="topic">
+                            Portfolio Website
+                        </a>
+
+                        <a href="#" class="topic">
+                            E-Commerce Website
+                        </a>
+
+                        <a href="#" class="topic">
+                            Task Management App
+                        </a>
+
+                        <a href="#" class="topic">
+                            Chat Application
+                        </a>
+
+                        <a href="#" class="topic">
+                            Learning Platform
+                        </a>
+
+                        <a href="#" class="topic">
+                            Full-Stack Capstone
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta">
+
+        <h2>
+            Ready to Start Learning? 🚀
+        </h2>
+
+        <p>
+            Follow the roadmap step by step and build your
+            Python full-stack development skills.
+        </p>
+
+        <a
+            href="tutorials.html"
+            class="hero-btn primary-btn"
+        >
+            Watch Tutorials →
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 Python Full-Stack Learning Hub 🐍
+        <br>
+        Learn • Build • Practice • Deploy
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function toggleCard(card) {
+
+            card.classList.toggle("active");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
